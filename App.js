@@ -1,13 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+import { StyleSheet, SafeAreaView, Platform } from 'react-native'
+import Map from './screens/Map.js'
+import Constants from 'expo-constants'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <SafeAreaView style={styles.container}>
+      <Map />
+      <StatusBar style='auto' />
+    </SafeAreaView>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -16,5 +18,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0
   },
-});
+})
